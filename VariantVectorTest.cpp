@@ -10,11 +10,11 @@ int main() {
 	};
 
 	std::vector<uint8_t> packed = CVariantVector::Pack(v);
-	for (const auto& byte : packed) {
+	for (uint8_t byte : packed) {
 		std::cout << std::hex << (int)byte << " ";
 	}
 	std::cout << std::endl;
-	
+
 	std::optional<CVariantVector::Type> unpacked = CVariantVector::Unpack(packed);
 	assert(unpacked.has_value());
 

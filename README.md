@@ -45,7 +45,7 @@ int main() {
 
 	// Displaying the packed bytes
 	std::cout << "Packed Bytes: ";
-	for (const auto& byte : packed) {
+	for (uint8_t byte : packed) {
 		std::cout << std::hex << (int)byte << " ";
 	}
 	std::cout << std::endl;
