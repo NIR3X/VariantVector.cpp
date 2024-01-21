@@ -1,0 +1,3 @@
+[submodule "VarsizedInt.cpp"]
+	path = VarsizedInt.cpp
+	url = https://github.com/NIR3X/VarsizedInt.cpp
