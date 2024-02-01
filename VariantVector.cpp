@@ -1,7 +1,7 @@
 #include "VariantVector.h"
 #include "VarsizedInt.cpp/VarsizedInt.h"
 
-static __forceinline void varsizedIntPack(std::vector<uint8_t>& packed, uint64_t x) {
+static inline void varsizedIntPack(std::vector<uint8_t>& packed, uint64_t x) {
 	uint8_t bytes[CVarsizedInt::MaxSize] = {};
 	int bytesSize = CVarsizedInt::Encode(bytes, x);
 	packed.insert(packed.end(), bytes, bytes + bytesSize);
@@ -37,7 +37,7 @@ std::vector<uint8_t> CVariantVector::Pack(const CVariantVector::Type& variantVec
 	return packed;
 }
 
-static __forceinline std::optional<uint64_t> varsizedIntUnpack(const std::vector<uint8_t>& data, uint64_t& offset) {
+static inline std::optional<uint64_t> varsizedIntUnpack(const std::vector<uint8_t>& data, uint64_t& offset) {
 	if (data.size() < offset + 1) {
 		return std::nullopt;
 	}
